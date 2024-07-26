@@ -43,7 +43,8 @@ position = Vector2(0, 60)
 [node name="StageRightLeg" type="Node2D" parent="Legs"]
 position = Vector2(35, 0)
 
-[node name="LegWhiteA" type="Sprite2D" parent="Legs/StageRightLeg"]
+[node name="RightLegSprite" type="Sprite2D" parent="Legs/StageRightLeg"]
+unique_name_in_owner = true
 self_modulate = Color(0, 0.86, 0.645, 1)
 position = Vector2(18, 70)
 texture = ExtResource("2_fxyp8")
@@ -53,7 +54,8 @@ position = Vector2(-35, 0)
 rotation = -3.14159
 scale = Vector2(1, -1)
 
-[node name="LegWhiteA" type="Sprite2D" parent="Legs/StageLeftLeg"]
+[node name="LeftLegSprite" type="Sprite2D" parent="Legs/StageLeftLeg"]
+unique_name_in_owner = true
 self_modulate = Color(0, 0.86, 0.645, 1)
 position = Vector2(18, 70)
 texture = ExtResource("2_fxyp8")

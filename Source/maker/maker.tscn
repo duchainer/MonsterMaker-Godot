@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d34qk4ffs1khx"]
+[gd_scene load_steps=20 format=3 uid="uid://d34qk4ffs1khx"]
 
 [ext_resource type="Texture2D" uid="uid://b6mjgmev72o0j" path="res://MonsterSprites/Bodies/body_whiteF.png" id="1_0d3sc"]
 [ext_resource type="PackedScene" uid="uid://7shrqes6ug2w" path="res://maker/monster.tscn" id="1_dpxp4"]
@@ -8,11 +8,17 @@
 [ext_resource type="Texture2D" uid="uid://px8c15ds77it" path="res://MonsterSprites/Bodies/body_whiteC.png" id="4_f3wo2"]
 [ext_resource type="Texture2D" uid="uid://c5u1thpitxoe7" path="res://MonsterSprites/Bodies/body_whiteD.png" id="5_sj1dc"]
 [ext_resource type="Texture2D" uid="uid://c0fyjib2ryjp1" path="res://MonsterSprites/Bodies/body_whiteE.png" id="6_ktyhp"]
+[ext_resource type="Texture2D" uid="uid://b4lmq4xpwi370" path="res://MonsterSprites/Legs/leg_whiteA.png" id="6_uljaw"]
 [ext_resource type="Texture2D" uid="uid://brasmimxtld2k" path="res://MonsterSprites/Arms/arm_whiteB.png" id="9_1nr2y"]
 [ext_resource type="Script" path="res://maker/monster_button_scripts/monster_arm_modifier_button.gd" id="9_d1oxv"]
 [ext_resource type="Texture2D" uid="uid://b06ownhdk4bl2" path="res://MonsterSprites/Arms/arm_whiteC.png" id="10_51kvv"]
 [ext_resource type="Texture2D" uid="uid://bdr1bhdcshjep" path="res://MonsterSprites/Arms/arm_whiteD.png" id="11_r3ldt"]
 [ext_resource type="Texture2D" uid="uid://8fdnpu84kskv" path="res://MonsterSprites/Arms/arm_whiteE.png" id="12_b520p"]
+[ext_resource type="Texture2D" uid="uid://0lhuhnhdrmcf" path="res://MonsterSprites/Legs/leg_whiteB.png" id="15_4q8qv"]
+[ext_resource type="Script" path="res://maker/monster_button_scripts/monster_leg_modifier_button.gd" id="15_ffxcv"]
+[ext_resource type="Texture2D" uid="uid://dpqw1mnnhnovt" path="res://MonsterSprites/Legs/leg_whiteC.png" id="16_vj2wc"]
+[ext_resource type="Texture2D" uid="uid://d3ggp1fequ0of" path="res://MonsterSprites/Legs/leg_whiteD.png" id="17_gxjhg"]
+[ext_resource type="Texture2D" uid="uid://bhqt5xerlw807" path="res://MonsterSprites/Legs/leg_whiteE.png" id="18_aikwy"]
 
 [node name="Maker" type="Node2D"]
 
@@ -24,7 +30,7 @@ position = Vector2(854, 248)
 [node name="TabContainer" type="TabContainer" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 40.0
-current_tab = 1
+current_tab = 2
 
 [node name="Body" type="PanelContainer" parent="CanvasLayer/TabContainer"]
 visible = false
@@ -71,47 +77,93 @@ layout_mode = 2
 texture_normal = ExtResource("1_0d3sc")
 controller = NodePath("../../../../../../Monster")
 
-[node name="Arm" type="PanelContainer" parent="CanvasLayer/TabContainer"]
+[node name="Arms" type="PanelContainer" parent="CanvasLayer/TabContainer"]
+visible = false
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TabContainer/Arm"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TabContainer/Arms"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="BodyGrid" type="GridContainer" parent="CanvasLayer/TabContainer/Arm/MarginContainer"]
+[node name="BodyGrid" type="GridContainer" parent="CanvasLayer/TabContainer/Arms/MarginContainer"]
 modulate = Color(0.388235, 0.729412, 0.180392, 1)
 layout_mode = 2
 columns = 3
 
-[node name="ArmA" parent="CanvasLayer/TabContainer/Arm/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+[node name="ArmA" parent="CanvasLayer/TabContainer/Arms/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
 layout_mode = 2
 texture_normal = ExtResource("2_8d7dv")
 script = ExtResource("9_d1oxv")
 controller = NodePath("../../../../../../Monster")
 
-[node name="ArmB" parent="CanvasLayer/TabContainer/Arm/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+[node name="ArmB" parent="CanvasLayer/TabContainer/Arms/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
 layout_mode = 2
 texture_normal = ExtResource("9_1nr2y")
 script = ExtResource("9_d1oxv")
 controller = NodePath("../../../../../../Monster")
 
-[node name="ArmC" parent="CanvasLayer/TabContainer/Arm/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+[node name="ArmC" parent="CanvasLayer/TabContainer/Arms/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
 layout_mode = 2
 texture_normal = ExtResource("10_51kvv")
 script = ExtResource("9_d1oxv")
 controller = NodePath("../../../../../../Monster")
 
-[node name="ArmD" parent="CanvasLayer/TabContainer/Arm/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+[node name="ArmD" parent="CanvasLayer/TabContainer/Arms/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
 layout_mode = 2
 texture_normal = ExtResource("11_r3ldt")
 script = ExtResource("9_d1oxv")
 controller = NodePath("../../../../../../Monster")
 
-[node name="ArmE" parent="CanvasLayer/TabContainer/Arm/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+[node name="ArmE" parent="CanvasLayer/TabContainer/Arms/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
 layout_mode = 2
 texture_normal = ExtResource("12_b520p")
 script = ExtResource("9_d1oxv")
+controller = NodePath("../../../../../../Monster")
+
+[node name="Legs" type="PanelContainer" parent="CanvasLayer/TabContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TabContainer/Legs"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="BodyGrid" type="GridContainer" parent="CanvasLayer/TabContainer/Legs/MarginContainer"]
+modulate = Color(0.388235, 0.729412, 0.180392, 1)
+layout_mode = 2
+columns = 3
+
+[node name="LegA" parent="CanvasLayer/TabContainer/Legs/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+layout_mode = 2
+texture_normal = ExtResource("6_uljaw")
+script = ExtResource("15_ffxcv")
+controller = NodePath("../../../../../../Monster")
+
+[node name="LegB" parent="CanvasLayer/TabContainer/Legs/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+layout_mode = 2
+texture_normal = ExtResource("15_4q8qv")
+script = ExtResource("15_ffxcv")
+controller = NodePath("../../../../../../Monster")
+
+[node name="LegC" parent="CanvasLayer/TabContainer/Legs/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+layout_mode = 2
+texture_normal = ExtResource("16_vj2wc")
+script = ExtResource("15_ffxcv")
+controller = NodePath("../../../../../../Monster")
+
+[node name="LegD" parent="CanvasLayer/TabContainer/Legs/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+layout_mode = 2
+texture_normal = ExtResource("17_gxjhg")
+script = ExtResource("15_ffxcv")
+controller = NodePath("../../../../../../Monster")
+
+[node name="LegE" parent="CanvasLayer/TabContainer/Legs/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+layout_mode = 2
+texture_normal = ExtResource("18_aikwy")
+script = ExtResource("15_ffxcv")
 controller = NodePath("../../../../../../Monster")
