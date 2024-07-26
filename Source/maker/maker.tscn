@@ -9,10 +9,17 @@
 [ext_resource type="Texture2D" uid="uid://c5u1thpitxoe7" path="res://MonsterSprites/Bodies/body_whiteD.png" id="5_sj1dc"]
 [ext_resource type="Texture2D" uid="uid://c0fyjib2ryjp1" path="res://MonsterSprites/Bodies/body_whiteE.png" id="6_ktyhp"]
 [ext_resource type="Texture2D" uid="uid://brasmimxtld2k" path="res://MonsterSprites/Arms/arm_whiteB.png" id="9_1nr2y"]
-[ext_resource type="Script" path="res://maker/monster_button_scripts/monster_arm_modifier_button.gd" id="9_d1oxv"]
 [ext_resource type="Texture2D" uid="uid://b06ownhdk4bl2" path="res://MonsterSprites/Arms/arm_whiteC.png" id="10_51kvv"]
 [ext_resource type="Texture2D" uid="uid://bdr1bhdcshjep" path="res://MonsterSprites/Arms/arm_whiteD.png" id="11_r3ldt"]
 [ext_resource type="Texture2D" uid="uid://8fdnpu84kskv" path="res://MonsterSprites/Arms/arm_whiteE.png" id="12_b520p"]
+
+[sub_resource type="GDScript" id="GDScript_145ro"]
+script/source = "class_name MonsterArmModifierButton
+extends MonsterModifierButton
+
+func apply():
+	controller.set_arm(texture_normal)
+"
 
 [node name="Maker" type="Node2D"]
 
@@ -89,29 +96,33 @@ columns = 3
 [node name="ArmA" parent="CanvasLayer/TabContainer/Arm/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
 layout_mode = 2
 texture_normal = ExtResource("2_8d7dv")
-script = ExtResource("9_d1oxv")
 controller = NodePath("../../../../../../Monster")
+target_body_part = 1
 
 [node name="ArmB" parent="CanvasLayer/TabContainer/Arm/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
 layout_mode = 2
 texture_normal = ExtResource("9_1nr2y")
-script = ExtResource("9_d1oxv")
+script = SubResource("GDScript_145ro")
 controller = NodePath("../../../../../../Monster")
+target_body_part = 1
 
 [node name="ArmC" parent="CanvasLayer/TabContainer/Arm/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
 layout_mode = 2
 texture_normal = ExtResource("10_51kvv")
-script = ExtResource("9_d1oxv")
+script = SubResource("GDScript_145ro")
 controller = NodePath("../../../../../../Monster")
+target_body_part = 1
 
 [node name="ArmD" parent="CanvasLayer/TabContainer/Arm/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
 layout_mode = 2
 texture_normal = ExtResource("11_r3ldt")
-script = ExtResource("9_d1oxv")
+script = SubResource("GDScript_145ro")
 controller = NodePath("../../../../../../Monster")
+target_body_part = 1
 
 [node name="ArmE" parent="CanvasLayer/TabContainer/Arm/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
 layout_mode = 2
 texture_normal = ExtResource("12_b520p")
-script = ExtResource("9_d1oxv")
+script = SubResource("GDScript_145ro")
 controller = NodePath("../../../../../../Monster")
+target_body_part = 1
