@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck2t761s0r3s4"]
+
+[ext_resource type="Texture2D" uid="uid://c6ynkga3fc0m5" path="res://MonsterSprites/Bodies/body_whiteA.png" id="1_w1t55"]
+[ext_resource type="Script" path="res://maker/monster_button_scripts/monster_modifier_button.gd" id="2_mnl8g"]
+
+[node name="BodyA" type="TextureButton"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_w1t55")
+script = ExtResource("2_mnl8g")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,114 +1,117 @@
-[gd_scene load_steps=10 format=3 uid="uid://7shrqes6ug2w"]
+[gd_scene load_steps=14 format=3 uid="uid://d34qk4ffs1khx"]
 
+[ext_resource type="Texture2D" uid="uid://b6mjgmev72o0j" path="res://MonsterSprites/Bodies/body_whiteF.png" id="1_0d3sc"]
+[ext_resource type="PackedScene" uid="uid://7shrqes6ug2w" path="res://maker/monster.tscn" id="1_dpxp4"]
+[ext_resource type="PackedScene" uid="uid://ck2t761s0r3s4" path="res://monster_modifier_button.tscn" id="2_6ry47"]
 [ext_resource type="Texture2D" uid="uid://cpo7tndhs258d" path="res://MonsterSprites/Arms/arm_whiteA.png" id="2_8d7dv"]
-[ext_resource type="Texture2D" uid="uid://c6ynkga3fc0m5" path="res://MonsterSprites/Bodies/body_whiteA.png" id="3_g2nkd"]
-[ext_resource type="Texture2D" uid="uid://drgg71veoit7q" path="res://MonsterSprites/Face/Eyes/eye_angry_blue.png" id="3_v0umc"]
-[ext_resource type="Texture2D" uid="uid://db7b7c3xg0r1k" path="res://MonsterSprites/Face/Mouth/mouthA.png" id="4_x2s83"]
-[ext_resource type="Texture2D" uid="uid://7ess8sj274qu" path="res://MonsterSprites/Face/Nose/nose_red.png" id="5_q3g0h"]
-[ext_resource type="Texture2D" uid="uid://b4lmq4xpwi370" path="res://MonsterSprites/Legs/leg_whiteA.png" id="6_uljaw"]
-[ext_resource type="Texture2D" uid="uid://cu63skon0knoc" path="res://MonsterSprites/Face/NoseDecoration/snot_small.png" id="7_di8rp"]
-[ext_resource type="Texture2D" uid="uid://b40w6xam6b58p" path="res://MonsterSprites/Antenna/detail_white_antenna_large.png" id="7_r027q"]
-[ext_resource type="Texture2D" uid="uid://cy4ky1ith0auh" path="res://MonsterSprites/Face/Eyebrows/eyebrowA.png" id="9_yk71p"]
+[ext_resource type="Texture2D" uid="uid://byyw1tey0evw4" path="res://MonsterSprites/Bodies/body_whiteB.png" id="3_6wxpq"]
+[ext_resource type="Texture2D" uid="uid://px8c15ds77it" path="res://MonsterSprites/Bodies/body_whiteC.png" id="4_f3wo2"]
+[ext_resource type="Texture2D" uid="uid://c5u1thpitxoe7" path="res://MonsterSprites/Bodies/body_whiteD.png" id="5_sj1dc"]
+[ext_resource type="Texture2D" uid="uid://c0fyjib2ryjp1" path="res://MonsterSprites/Bodies/body_whiteE.png" id="6_ktyhp"]
+[ext_resource type="Texture2D" uid="uid://brasmimxtld2k" path="res://MonsterSprites/Arms/arm_whiteB.png" id="9_1nr2y"]
+[ext_resource type="Script" path="res://maker/monster_button_scripts/monster_arm_modifier_button.gd" id="9_d1oxv"]
+[ext_resource type="Texture2D" uid="uid://b06ownhdk4bl2" path="res://MonsterSprites/Arms/arm_whiteC.png" id="10_51kvv"]
+[ext_resource type="Texture2D" uid="uid://bdr1bhdcshjep" path="res://MonsterSprites/Arms/arm_whiteD.png" id="11_r3ldt"]
+[ext_resource type="Texture2D" uid="uid://8fdnpu84kskv" path="res://MonsterSprites/Arms/arm_whiteE.png" id="12_b520p"]
 
-[node name="MakerScene" type="Node2D"]
+[node name="Maker" type="Node2D"]
 
-[node name="RightArm" type="Node2D" parent="."]
-position = Vector2(80, 25)
-rotation = -0.598648
+[node name="Monster" parent="." instance=ExtResource("1_dpxp4")]
+position = Vector2(854, 248)
 
-[node name="ArmSprite" type="Sprite2D" parent="RightArm"]
-self_modulate = Color(0, 0.86, 0.645, 1)
-position = Vector2(20, 59)
-texture = ExtResource("2_8d7dv")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="LeftArm" type="Node2D" parent="."]
-position = Vector2(-80, 25)
-rotation = 0.610865
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+current_tab = 1
 
-[node name="ArmSprite" type="Sprite2D" parent="LeftArm"]
-self_modulate = Color(0, 0.86, 0.645, 1)
-position = Vector2(-16.7645, 63.6157)
-scale = Vector2(-1, 1)
-texture = ExtResource("2_8d7dv")
+[node name="Body" type="PanelContainer" parent="CanvasLayer/TabContainer"]
+visible = false
+layout_mode = 2
 
-[node name="Legs" type="Node2D" parent="."]
-position = Vector2(0, 60)
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TabContainer/Body"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="StageRightLeg" type="Node2D" parent="Legs"]
-position = Vector2(35, 0)
+[node name="BodyGrid" type="GridContainer" parent="CanvasLayer/TabContainer/Body/MarginContainer"]
+modulate = Color(0.388235, 0.729412, 0.180392, 1)
+layout_mode = 2
+columns = 3
 
-[node name="LegWhiteA" type="Sprite2D" parent="Legs/StageRightLeg"]
-self_modulate = Color(0, 0.86, 0.645, 1)
-position = Vector2(18, 70)
-texture = ExtResource("6_uljaw")
+[node name="BodyA" parent="CanvasLayer/TabContainer/Body/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+layout_mode = 2
+controller = NodePath("../../../../../../Monster")
 
-[node name="StageLeftLeg" type="Node2D" parent="Legs"]
-position = Vector2(-35, 0)
-rotation = -3.14159
-scale = Vector2(1, -1)
+[node name="BodyB" parent="CanvasLayer/TabContainer/Body/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+layout_mode = 2
+texture_normal = ExtResource("3_6wxpq")
+controller = NodePath("../../../../../../Monster")
 
-[node name="LegWhiteA" type="Sprite2D" parent="Legs/StageLeftLeg"]
-self_modulate = Color(0, 0.86, 0.645, 1)
-position = Vector2(18, 70)
-texture = ExtResource("6_uljaw")
+[node name="BodyC" parent="CanvasLayer/TabContainer/Body/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+layout_mode = 2
+texture_normal = ExtResource("4_f3wo2")
+controller = NodePath("../../../../../../Monster")
 
-[node name="Body" type="Sprite2D" parent="."]
-self_modulate = Color(3.41728e-06, 0.678804, 0.509504, 1)
-texture = ExtResource("3_g2nkd")
+[node name="BodyD" parent="CanvasLayer/TabContainer/Body/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+layout_mode = 2
+texture_normal = ExtResource("5_sj1dc")
+controller = NodePath("../../../../../../Monster")
 
-[node name="Eyes" type="Node2D" parent="."]
-position = Vector2(0, -42)
+[node name="BodyE" parent="CanvasLayer/TabContainer/Body/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+layout_mode = 2
+texture_normal = ExtResource("6_ktyhp")
+controller = NodePath("../../../../../../Monster")
 
-[node name="LeftEye" type="Sprite2D" parent="Eyes"]
-position = Vector2(-48, 10)
-texture = ExtResource("3_v0umc")
+[node name="BodyF" parent="CanvasLayer/TabContainer/Body/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+layout_mode = 2
+texture_normal = ExtResource("1_0d3sc")
+controller = NodePath("../../../../../../Monster")
 
-[node name="RightEye" type="Sprite2D" parent="Eyes"]
-position = Vector2(48, 10)
-rotation = 3.14159
-scale = Vector2(1, -1)
-texture = ExtResource("3_v0umc")
+[node name="Arm" type="PanelContainer" parent="CanvasLayer/TabContainer"]
+layout_mode = 2
 
-[node name="MouthA" type="Sprite2D" parent="."]
-position = Vector2(0, 57)
-texture = ExtResource("4_x2s83")
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TabContainer/Arm"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="NoseRed" type="Sprite2D" parent="."]
-position = Vector2(0, 1)
-texture = ExtResource("5_q3g0h")
+[node name="BodyGrid" type="GridContainer" parent="CanvasLayer/TabContainer/Arm/MarginContainer"]
+modulate = Color(0.388235, 0.729412, 0.180392, 1)
+layout_mode = 2
+columns = 3
 
-[node name="SnotSmall" type="Sprite2D" parent="."]
-position = Vector2(8, 32)
-texture = ExtResource("7_di8rp")
+[node name="ArmA" parent="CanvasLayer/TabContainer/Arm/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+layout_mode = 2
+texture_normal = ExtResource("2_8d7dv")
+script = ExtResource("9_d1oxv")
+controller = NodePath("../../../../../../Monster")
 
-[node name="Antenna" type="Node2D" parent="."]
-position = Vector2(0, -74)
+[node name="ArmB" parent="CanvasLayer/TabContainer/Arm/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+layout_mode = 2
+texture_normal = ExtResource("9_1nr2y")
+script = ExtResource("9_d1oxv")
+controller = NodePath("../../../../../../Monster")
 
-[node name="LeftAntenna" type="Node2D" parent="Antenna"]
-position = Vector2(-30, 0)
-rotation = 2.79253
-scale = Vector2(1, -1)
+[node name="ArmC" parent="CanvasLayer/TabContainer/Arm/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+layout_mode = 2
+texture_normal = ExtResource("10_51kvv")
+script = ExtResource("9_d1oxv")
+controller = NodePath("../../../../../../Monster")
 
-[node name="DetailWhiteAntennaLarge" type="Sprite2D" parent="Antenna/LeftAntenna"]
-self_modulate = Color(0, 0.86, 0.645, 1)
-position = Vector2(11, -24)
-texture = ExtResource("7_r027q")
+[node name="ArmD" parent="CanvasLayer/TabContainer/Arm/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+layout_mode = 2
+texture_normal = ExtResource("11_r3ldt")
+script = ExtResource("9_d1oxv")
+controller = NodePath("../../../../../../Monster")
 
-[node name="RightAntenna" type="Node2D" parent="Antenna"]
-position = Vector2(30, 0)
-rotation = 0.359538
-
-[node name="DetailWhiteAntennaLarge" type="Sprite2D" parent="Antenna/RightAntenna"]
-self_modulate = Color(0, 0.86, 0.645, 1)
-position = Vector2(11, -24)
-texture = ExtResource("7_r027q")
-
-[node name="LeftBrow" type="Sprite2D" parent="."]
-position = Vector2(-47.5, -66)
-rotation = 3.14159
-scale = Vector2(1, -1)
-texture = ExtResource("9_yk71p")
-
-[node name="RightBrow" type="Sprite2D" parent="."]
-position = Vector2(50.5, -66)
-texture = ExtResource("9_yk71p")
+[node name="ArmE" parent="CanvasLayer/TabContainer/Arm/MarginContainer/BodyGrid" node_paths=PackedStringArray("controller") instance=ExtResource("2_6ry47")]
+layout_mode = 2
+texture_normal = ExtResource("12_b520p")
+script = ExtResource("9_d1oxv")
+controller = NodePath("../../../../../../Monster")
