@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=3 uid="uid://7shrqes6ug2w"]
+
+[ext_resource type="Texture2D" uid="uid://cpo7tndhs258d" path="res://MonsterSprites/Arms/arm_whiteA.png" id="2_8d7dv"]
+[ext_resource type="Texture2D" uid="uid://c6ynkga3fc0m5" path="res://MonsterSprites/Bodies/body_whiteA.png" id="3_g2nkd"]
+[ext_resource type="Texture2D" uid="uid://drgg71veoit7q" path="res://MonsterSprites/Face/Eyes/eye_angry_blue.png" id="3_v0umc"]
+[ext_resource type="Texture2D" uid="uid://db7b7c3xg0r1k" path="res://MonsterSprites/Face/Mouth/mouthA.png" id="4_x2s83"]
+[ext_resource type="Texture2D" uid="uid://7ess8sj274qu" path="res://MonsterSprites/Face/Nose/nose_red.png" id="5_q3g0h"]
+[ext_resource type="Texture2D" uid="uid://b4lmq4xpwi370" path="res://MonsterSprites/Legs/leg_whiteA.png" id="6_uljaw"]
+[ext_resource type="Texture2D" uid="uid://cu63skon0knoc" path="res://MonsterSprites/Face/NoseDecoration/snot_small.png" id="7_di8rp"]
+[ext_resource type="Texture2D" uid="uid://b40w6xam6b58p" path="res://MonsterSprites/Antenna/detail_white_antenna_large.png" id="7_r027q"]
+[ext_resource type="Texture2D" uid="uid://cy4ky1ith0auh" path="res://MonsterSprites/Face/Eyebrows/eyebrowA.png" id="9_yk71p"]
+
+[node name="MakerScene" type="Node2D"]
+
+[node name="RightArm" type="Node2D" parent="."]
+position = Vector2(80, 25)
+rotation = -0.598648
+
+[node name="ArmSprite" type="Sprite2D" parent="RightArm"]
+self_modulate = Color(0, 0.86, 0.645, 1)
+position = Vector2(20, 59)
+texture = ExtResource("2_8d7dv")
+
+[node name="LeftArm" type="Node2D" parent="."]
+position = Vector2(-80, 25)
+rotation = 0.610865
+
+[node name="ArmSprite" type="Sprite2D" parent="LeftArm"]
+self_modulate = Color(0, 0.86, 0.645, 1)
+position = Vector2(-16.7645, 63.6157)
+scale = Vector2(-1, 1)
+texture = ExtResource("2_8d7dv")
+
+[node name="Legs" type="Node2D" parent="."]
+position = Vector2(0, 60)
+
+[node name="StageRightLeg" type="Node2D" parent="Legs"]
+position = Vector2(35, 0)
+
+[node name="LegWhiteA" type="Sprite2D" parent="Legs/StageRightLeg"]
+self_modulate = Color(0, 0.86, 0.645, 1)
+position = Vector2(18, 70)
+texture = ExtResource("6_uljaw")
+
+[node name="StageLeftLeg" type="Node2D" parent="Legs"]
+position = Vector2(-35, 0)
+rotation = -3.14159
+scale = Vector2(1, -1)
+
+[node name="LegWhiteA" type="Sprite2D" parent="Legs/StageLeftLeg"]
+self_modulate = Color(0, 0.86, 0.645, 1)
+position = Vector2(18, 70)
+texture = ExtResource("6_uljaw")
+
+[node name="Body" type="Sprite2D" parent="."]
+self_modulate = Color(3.41728e-06, 0.678804, 0.509504, 1)
+texture = ExtResource("3_g2nkd")
+
+[node name="Eyes" type="Node2D" parent="."]
+position = Vector2(0, -42)
+
+[node name="LeftEye" type="Sprite2D" parent="Eyes"]
+position = Vector2(-48, 10)
+texture = ExtResource("3_v0umc")
+
+[node name="RightEye" type="Sprite2D" parent="Eyes"]
+position = Vector2(48, 10)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("3_v0umc")
+
+[node name="MouthA" type="Sprite2D" parent="."]
+position = Vector2(0, 57)
+texture = ExtResource("4_x2s83")
+
+[node name="NoseRed" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = ExtResource("5_q3g0h")
+
+[node name="SnotSmall" type="Sprite2D" parent="."]
+position = Vector2(8, 32)
+texture = ExtResource("7_di8rp")
+
+[node name="Antenna" type="Node2D" parent="."]
+position = Vector2(0, -74)
+
+[node name="LeftAntenna" type="Node2D" parent="Antenna"]
+position = Vector2(-30, 0)
+rotation = 2.79253
+scale = Vector2(1, -1)
+
+[node name="DetailWhiteAntennaLarge" type="Sprite2D" parent="Antenna/LeftAntenna"]
+self_modulate = Color(0, 0.86, 0.645, 1)
+position = Vector2(11, -24)
+texture = ExtResource("7_r027q")
+
+[node name="RightAntenna" type="Node2D" parent="Antenna"]
+position = Vector2(30, 0)
+rotation = 0.359538
+
+[node name="DetailWhiteAntennaLarge" type="Sprite2D" parent="Antenna/RightAntenna"]
+self_modulate = Color(0, 0.86, 0.645, 1)
+position = Vector2(11, -24)
+texture = ExtResource("7_r027q")
+
+[node name="LeftBrow" type="Sprite2D" parent="."]
+position = Vector2(-47.5, -66)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("9_yk71p")
+
+[node name="RightBrow" type="Sprite2D" parent="."]
+position = Vector2(50.5, -66)
+texture = ExtResource("9_yk71p")
